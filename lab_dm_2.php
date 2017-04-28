@@ -30,13 +30,13 @@ if(isset($_POST['button'])) {
 	foreach($full_set as $value)
 		echo $value." ";
 
-
 	$flag_rfx = 0;
 	$flag_sym = 0;
 	$flag_sym_rel = 0;
 	$flag_asym = 0;
 	$flag_t = 0;
 	$flag_t_rel = 0;
+	$flag_func = 0;
 	foreach($full_set as $elem) 
 		foreach($arr_rel as $rel_item) 
 			if ($elem == $rel_item[0] and $elem == $rel_item[1])
@@ -54,7 +54,6 @@ if(isset($_POST['button'])) {
 						$flag_asym += 1;
 					}
 			}
-			
 			
 	foreach($arr_rel as $rel_item) {
 		$t1 = $rel_item[0];
@@ -86,5 +85,16 @@ if(isset($_POST['button'])) {
 		echo "</br>Транзитивно";
 	else
 		echo "</br>Не транзитивно";
+	
+			foreach($arr_rel as $rel_item)
+				foreach($arr_rel as $rel_item2)
+					if ($rel_item[0] == $rel_item2[0])
+						$flag_func += 1;
+					
+					
+			if ($flag_func == 1)
+		echo "</br>Функция";
+	else
+		echo "</br>Не функция";
 }
 ?>
