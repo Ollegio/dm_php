@@ -6,7 +6,7 @@
 <body>
 <form method="post" action="">
     <textarea rows="10" cols="45" name="arr"></textarea>
-    <input type="submit" name="button" value="Îòïðàâèòü">
+    <input type="submit" name="button" value="ÃŽÃ²Ã¯Ã°Ã Ã¢Ã¨Ã²Ã¼">
 </form>
 </body>
 </html>
