@@ -6,7 +6,11 @@
 <body>
 <form method="post" action="">
     <textarea rows="10" cols="45" name="arr"></textarea>
-    <input type="submit" name="button" value="Ioi?aaeou">
+    </br>
+	<input type="text" name="start" placeholder="Начало" value="">
+	<input type="text" name="end" placeholder="Конец" value="">
+	<input type="submit" name="button" value="Найти маршрут">
+	
 </form>
 </body>
 </html>
@@ -24,13 +28,13 @@ function floyd ($matx, $a, $b) {
 			else
 				$mat_vertex[$i][$j] = $j;
 	}
-	echo "//<u>1,2,3,4</u></br>";
+	/*echo "//<u>1,2,3,4</u></br>";
 	for ($i = 1; $i < count($mat_vertex) + 1; $i++) {
 		echo "$i|";
 		for ($j = 1; $j < count($mat_vertex) + 1; $j++)
 			echo $mat_vertex[$i][$j]." ";
 	echo "</br>";
-	}
+	}*/
 	
 	echo "</br>";
 	for ($i = 1; $i < count($mat_path) + 1; $i++)
@@ -42,7 +46,7 @@ function floyd ($matx, $a, $b) {
 				}
 				
    
-	echo "</br>";
+	/*echo "</br>";
 	echo "//<u>1,2,3,4</u></br>";
 	for ($i = 1; $i < count($mat_path) + 1; $i++) {
 		echo "$i|";
@@ -52,24 +56,27 @@ function floyd ($matx, $a, $b) {
 	}
 	
 	echo "</br>";
+	echo "//<u>1,2,3,4</u></br>";
 	for ($i = 1; $i < count($mat_vertex) + 1; $i++) {
+		echo "$i|";
 		for ($j = 1; $j < count($mat_vertex) + 1; $j++)
 			echo $mat_vertex[$i][$j]." ";
-		echo "</br>";
-	}
+	echo "</br>";
+	}*/
 	
 	$f = $mat_vertex[$a][$b];
+	echo "Путь из $a в $b: $a=>";
 	while (1) {
-	echo " ".$f;
-	$f -= 1;
-	$f = $mat_vertex[$a][$f];
-	if ($f == $a) break;
+	
+	echo "$f=>";
+	$f = $mat_vertex[$f][$b];
+	if ($f == $b) break;
 	}
+	echo "$f";
 }
 if(isset($_POST['button'])) {
     $arr_full = $_POST['arr'];
 	$arr = explode("\n", $arr_full);
-
 	foreach($arr as $row)
 		$mat[] = explode(" ", $row);
 	
@@ -79,6 +86,7 @@ if(isset($_POST['button'])) {
 	
 	
 	echo "</br>";
-	floyd($mat2, 1, 2);
+	
+	floyd($mat2, $_POST['start'], $_POST['end']);
 }
 ?>
