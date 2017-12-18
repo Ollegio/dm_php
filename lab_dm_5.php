@@ -35,7 +35,7 @@
 		foreach($row as $elem)
 			echo $elem." ";
 		echo "</br>";
-	}
+		}
 	}?>
 	</body>
 </html>
